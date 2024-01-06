@@ -36,7 +36,7 @@ function App() {
 
   const [result, setResult] = useState('') 
   
-  const [bgColor, setBgColor] = useState('#242424') 
+  const [bgColor, setBgColor] = useState('App') 
 
   const [correct, setCorrect] = useState(0)
   const [uncorrect, setUncorrect] = useState(0)
@@ -89,7 +89,7 @@ function App() {
     if(message == saveRandomNumb){
       console.log(message, 'data' , saveRandomNumb, 'updated');
       setResult('true')
-      toggleBackground('green')
+      toggleBackground('appBgGreen')
       setCorrect(correct + 1)
 
     console.log('correct');
@@ -97,7 +97,7 @@ function App() {
     }else{
       console.log(message, 'data' , saveRandomNumb, 'updated');
       setResult('false')
-      toggleBackground('red')
+      toggleBackground('appBgRed')
       setUncorrect(uncorrect + 1)
 
       console.log('wrong');
@@ -116,28 +116,33 @@ const toggleBackground = (color) =>{
   setBgColor(color)
 
   setTimeout(() => {
-    setBgColor('#242424');
-  }, 300);
+    setBgColor('App');
+  }, 150);
 
 }
 
 
   return (
-      <div className='App' style={{background:`${bgColor}`}}>
+      <div className={bgColor} >
+
+
+        <div className='correct'>
+        <h1>Correct: {correct}</h1>
+        </div>
     
+     <div>
      <h1>{toggleRandomNumber}</h1>
       <input 
       onChange={handleChange}
       onKeyDown={handleKeyDown}></input>
       <button onClick={toggleNumber}>Random</button>
-
-
-     
       <h1>{result}</h1>
+     </div>
       
-
-      <h1>Correct: {correct}</h1>
-      <h1>Uncorrect {uncorrect}</h1>
+     <div className='uncorrect'>
+     <h1>Uncorrect: {uncorrect}</h1>
+        </div>
+      
     
      
       </div>

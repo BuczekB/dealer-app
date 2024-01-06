@@ -1,35 +1,44 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0 ;
+  padding: 0;
   text-align: center;
 }
 
 
 .App{
 display: flex;
-flex-direction: column;
+}
+
+.App, .appBgGreen, .appBgRed{
+  width: 100vw;
+height: 100vh;
+justify-content: space-between;
+align-items: center;
+box-sizing: border-box;
+padding: 100px;
 }
 
 h1{font-size: 44px;}
 
 
-.bgGreen{
-  background-color: green;
-  display: flex;
-flex-direction: column;
-width: 50vw;
-
+.appBgGreen{
+  background: rgb(26, 95, 7);
+  background: linear-gradient(135deg, rgb(23, 104, 1) 0%, rgb(19, 219, 56) 100%);
 }
-.bgRed{
-  background-color: red;
-  display: flex;
-flex-direction: column;
-width: 50vw;
+.appBgRed{
+  background: rgb(212, 7, 7);
+  background: linear-gradient(135deg, rgb(122, 6, 6) 0%, rgb(255, 15, 15) 100%);
 }
 .bgNormal{
   background-color: #666;
   display: flex;
 flex-direction: column;
 width: 50vw;
+}
+
+.correct{
+  color: green;
+}
+.uncorrect{
+  color: red;
 }
