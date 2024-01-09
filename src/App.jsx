@@ -163,6 +163,8 @@ function App() {
     setMessage(e.target.value)
   }
 
+  
+
   const handleKeyDown = (e) =>{
     console.log(e.target.type);
    if(e.key === 'Enter' || e.target.type === 'submit'){
@@ -184,12 +186,15 @@ function App() {
       toggleBackground('appBgRed')
       setUncorrect(uncorrect + 1)
 
-     
+     console.log('test');
       
     }
   
+    console.log(e.target.value);
 
-    e.target.value = ''
+    setMessage('')
+   
+    
 
     const {a} = selectNumbers[0]  
     const {b} = selectNumbers[1]  
@@ -271,6 +276,7 @@ const changeNumbers = (numb) =>{
       <input 
       onChange={handleChange}
       onKeyDown={handleKeyDown}
+      value={message}
       ></input>
       <button className='mobileButton' onClick={handleKeyDown}>CHECK</button>
      </div>
