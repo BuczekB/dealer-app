@@ -3,6 +3,7 @@
 
 
 import { useEffect, useState } from 'react';
+import {Link} from "react-router-dom"
 import './CountingBJ.css'
 
 function CountingBJ() {
@@ -155,6 +156,9 @@ const data =[
       
 
     <div className='container'>
+
+<Link to='/dealer-app'><button className='backButton'>BACK</button></Link>
+
     <div className='workBox'>
        <div className='correct'>
         <h1>Correct: {correct}</h1>
