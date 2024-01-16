@@ -167,6 +167,7 @@ const data =[
       onKeyDown={handleKeyDown}
       value={inputValue}
       ></input>
+      <h3>Use dot between numbers</h3>
       <button className='mobileButton' >CHECK</button>
      </div>
       
