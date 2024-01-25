@@ -9,6 +9,6 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     css: true,
-    setupFiles: './src/testFiles/setup.jsx'
+    setupFiles: './src/CountingBJ.test.jsx'
   },
 })

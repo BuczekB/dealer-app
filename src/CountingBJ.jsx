@@ -6,15 +6,17 @@ import { useEffect, useState } from 'react';
 import {Link} from "react-router-dom"
 import './CountingBJ.css'
 
-function CountingBJ() {
+export function CountingBJ() {
 
-    const [finalNumber, setFinalNumber] = useState()
-    const [BjOfFinalNumber, setBjOfFinalNumber] = useState()
+  const initCount = 0
 
-    const [inputValue, setInputValue] = useState()
+  const [finalNumber, setFinalNumber] = useState(initCount)
+  const [BjOfFinalNumber, setBjOfFinalNumber] = useState(0)
 
-    const [correct, setCorrect] = useState(0)
-    const [uncorrect, setUncorrect] = useState(0)
+  const [inputValue, setInputValue] = useState(0)
+
+  const [correct, setCorrect] = useState(0)
+  const [uncorrect, setUncorrect] = useState(0)
 
     
 
@@ -101,17 +103,35 @@ const data =[
     {"a": 400, "b": 600}
   ]
 
+  /*const data = [
+    {"a": 5, "b": 7.5},
+  {"a": 15, "b": 22.5},
+  {"a": 25, "b": 37.5},
+  {"a": 35, "b": 52.5},
+  {"a": 45, "b": 67.5},
+  {"a": 55, "b": 82.5},
+  {"a": 65, "b": 97.5},
+  {"a": 75, "b": 112.5},
+  {"a": 85, "b": 127.5},
+  {"a": 95, "b": 142.5},
+]]*/ 
+
+
+  
+
   useEffect(() =>{
     toggleNumber()
   },[])
 
 
- const toggleNumber = () =>{
+  const toggleNumber = () =>{
     const random = Math.floor(Math.random() * (80 - 1 + 1) );
 
     const numb = data[random]
     setFinalNumber(numb.a)
     setBjOfFinalNumber(numb.b)
+
+    return(random)
     
  }
 
@@ -124,23 +144,22 @@ const data =[
    if(e.key === 'Enter' || e.target.type === 'submit'){
 
     
-   console.log(inputValue);
-   console.log(BjOfFinalNumber);
+ 
    
     
     if(inputValue == BjOfFinalNumber){
    
         setCorrect(correct + 1)
-    console.log('correct');
+   
       
     }else{
      
         setUncorrect(uncorrect + 1)
-     console.log('test');
+    
       
     }
   
-    console.log(e.target.value);
+   
 
     setInputValue('')
     toggleNumber()
@@ -161,15 +180,16 @@ const data =[
 
     <div className='workBox'>
        <div className='correct'>
-        <h1>Correct: {correct}</h1>
+        <h1>Correct: <span id='correctNoumber'>{correct}</span></h1>
         </div>
     
      <div className='inputBox'>
-     <h1>BlackJack Of {finalNumber}</h1>
+     <h1>BlackJack Of <span id='valueBJ'>{finalNumber}</span></h1>
       <input 
       onChange={handleChange}
       onKeyDown={handleKeyDown}
       value={inputValue}
+      id='valueToCheck'
       ></input>
       <h3>Use dot between numbers</h3>
       <button className='mobileButton' >CHECK</button>
