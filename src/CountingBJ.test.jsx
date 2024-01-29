@@ -24,14 +24,14 @@ test('testing correct counting BJ ',   () => {
 
   fireEvent.change(expectedValue, {target: {value: valueOfBlackJack.textContent*1.5}})
 
-
-  fireEvent.keyDown(expectedValue, { key: 'Enter', code: 'Enter' });
+  const test = fireEvent.keyDown(expectedValue, { key: 'Enter', code: 'Enter' });
   
   
   const correctNoumber = document.getElementById('correctNoumber')
 
 
-console.log(correctNoumber.textContent);
+console.log(valueOfBlackJack.textContent, 'first');
+console.log(  test , 'secound');
 
 expect(correctNoumber.textContent).toBe('1');
  
@@ -39,3 +39,50 @@ expect(correctNoumber.textContent).toBe('1');
    
    
   })
+
+
+  
+test('testing change value of blackjacks (1-100)',   () => {
+  render(
+    <MemoryRouter initialEntries={['/CountingBJ']}>
+      <App />
+    </MemoryRouter>
+  )
+
+  const first =  document.getElementById('first')
+
+  fireEvent.click(first)
+
+  const valueOfBlackJack =  document.getElementById('valueBJ')
+
+  console.log(valueOfBlackJack.textContent, 'testtt1');
+
+  const intValue = (valueOfBlackJack.textContent*1)
+
+  expect(intValue).toBeLessThan(100);
+
+
+})
+
+test('testing change value of blackjacks (100-600)',   () => {
+  render(
+    <MemoryRouter initialEntries={['/CountingBJ']}>
+      <App />
+    </MemoryRouter>
+  )
+
+  const secound =  document.getElementById('secound')
+
+  fireEvent.click(secound)
+
+  const valueOfBlackJack =  document.getElementById('valueBJ')
+
+  console.log(valueOfBlackJack.textContent, 'test2');
+
+  const intValue = (valueOfBlackJack.textContent*1)
+
+  expect(intValue).toBeGreaterThan(100);
+
+
+})
+

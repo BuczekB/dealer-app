@@ -197,9 +197,9 @@ const data =[
 
 
 <div className='buttonBox'>
-          <button onClick={() => changeNumbers('100')}>1-100</button>
-          <button onClick={() => changeNumbers('100-600')}>100-600</button>
-          <button onClick={() => changeNumbers('all')}>ALL</button>
+          <button id='first' onClick={() => changeNumbers('100')}>1-100</button>
+          <button id='secound' onClick={() => changeNumbers('100-600')}>100-600</button>
+          <button id='all' onClick={() => changeNumbers('all')}>ALL</button>
         </div>
 
 
