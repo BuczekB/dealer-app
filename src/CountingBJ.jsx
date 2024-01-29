@@ -17,6 +17,7 @@ export function CountingBJ() {
 
   const [correct, setCorrect] = useState(0)
   const [uncorrect, setUncorrect] = useState(0)
+  const [selectNumbers, setSelectNumbers] = useState([{a: 19 }, {b: 0}])
 
     
 
@@ -120,12 +121,14 @@ const data =[
   
 
   useEffect(() =>{
-    toggleNumber()
+    const {a} = selectNumbers[0]  
+    const {b} = selectNumbers[1]  
+    toggleNumber(a, b)
   },[])
 
 
-  const toggleNumber = () =>{
-    const random = Math.floor(Math.random() * (80 - 1 + 1) );
+  const toggleNumber = (valueMax, valueMin) =>{
+    const random = Math.floor(Math.random() * (valueMax - valueMin + 1) + valueMin);
 
     const numb = data[random]
     setFinalNumber(numb.a)
@@ -144,9 +147,6 @@ const data =[
    if(e.key === 'Enter' || e.target.type === 'submit'){
 
     
- 
-   
-    
     if(inputValue == BjOfFinalNumber){
    
         setCorrect(correct + 1)
@@ -155,20 +155,37 @@ const data =[
     }else{
      
         setUncorrect(uncorrect + 1)
-    
-      
     }
-  
-   
-
     setInputValue('')
-    toggleNumber()
-   
-    
+    const {a} = selectNumbers[0]  
+    const {b} = selectNumbers[1]  
 
-    
-    
+    toggleNumber(a , b)
    }
+  }
+
+  const changeNumbers = (numb) =>{
+  
+    switch (numb) {
+      case '100':
+          toggleNumber(19, 0)
+          setSelectNumbers([{a: 19}, {b:0}])
+        break;
+        case '100-600':
+            toggleNumber(80, 19)
+            setSelectNumbers([{a: 80}, {b:19}])
+           
+          break;
+          case 'all':
+            toggleNumber(80, 0)
+            setSelectNumbers([{a: 80}, {b:0}])
+           
+          break;
+      default:
+        break
+    }
+
+   
   }
 
   return (
@@ -177,6 +194,14 @@ const data =[
     <div className='container'>
 
 <Link to='/dealer-app'><button className='backButton'>BACK</button></Link>
+
+
+<div className='buttonBox'>
+          <button onClick={() => changeNumbers('100')}>1-100</button>
+          <button onClick={() => changeNumbers('100-600')}>100-600</button>
+          <button onClick={() => changeNumbers('all')}>ALL</button>
+        </div>
+
 
     <div className='workBox'>
        <div className='correct'>
