@@ -48,29 +48,19 @@ const PokerPayments = () => {
 
     const toggleNumber = (valueMax, valueMin, nameOfDataBase) =>{
       const random = Math.floor(Math.random() * (valueMax - valueMin + 1) + valueMin);
-
-    
-     console.log(nameOfGame);
-  
-     
       const arrayElement = nameOfDataBase[random]
-     
-     
-      setToggleHands(arrayElement)
-      
+      setToggleHands(arrayElement) 
    }
 
    const handleChangeFirstInput = (e) =>{
     setInputValueOne(e.target.value)
- }
- const handleChangeSecoundInput = (e) =>{
-  setInputValueTwo(e.target.value)
-}
+
+  }
+  const handleChangeSecoundInput = (e) =>{
+    setInputValueTwo(e.target.value)
+  }
 
 const checkPayments = () =>{
-
-  console.log(toggleHands);
-
   if(choosePoker.name === 'AmericanPoker'){
     if(toggleHands.blind == inputValueOne & toggleHands.bonus == inputValueTwo){
       setCorrect(correct+1)
@@ -103,14 +93,6 @@ const checkPayments = () =>{
  
 }
 const changeGame = (value) =>{
-
-  console.log(value);
-
-  console.log(value);
-
-  console.log(choosePoker.name);
-
-
   switch (value) {
     case 'American':
         setNameOfGame(dataAmerican)
@@ -127,26 +109,14 @@ const changeGame = (value) =>{
     default:
       break
   }
-
-  console.log(choosePoker.name);
- 
 }
    
-
-   
-   
- 
 const handleKeyDown = (e) =>{
   
   if(e.key === 'Enter' ){
     checkPayments()
   }
-
   }
-
-  
-
-
     return(
         <div className='container'>
 
@@ -185,7 +155,8 @@ const handleKeyDown = (e) =>{
       ></input>
       <label className="labelInputBox" htmlFor='bonus'>{choosePoker.secoundValue}</label>
       </div>
-      <button className='' onClick={checkPayments} >CHECK</button>
+    
+      <Button text={'CHECK'} handleChange={() => {checkPayments()}}/>
      </div>
       
      <div className='uncorrect'>
