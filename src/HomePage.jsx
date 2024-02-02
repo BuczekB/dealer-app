@@ -1,26 +1,20 @@
-
-
 import './HomePage.css'
 import { Link } from 'react-router-dom'
+import  Button  from './atoms/button/Button'
 
 function HomePage() {
-
-
-
 
   return (
       <div className='container' >
      <Link to="/MultiplicationTable">
-     <button>Multiplication Table</button>
+     <Button text='Multiplication Table'/>
      </Link>
      <Link to="/CountingBJ">
-     <button>Counting BJ</button>
+     <Button text='Counting BJ'/>
      </Link>
      <Link to="/PokerPayments">
-     <button>PokerPayments</button>
+     <Button text='PokerPayments'/>
      </Link>
-    
-     
       </div>
   )
 }

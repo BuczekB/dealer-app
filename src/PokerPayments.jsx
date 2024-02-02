@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 
 import './PokerPayments.css'
 
+import Button from "./atoms/button/Button"
+
 const PokerPayments = () => {
 
     const dataAmerican = [
@@ -148,12 +150,15 @@ const handleKeyDown = (e) =>{
     return(
         <div className='container'>
 
-        <Link to='/dealer-app'><button className='backButton'>BACK</button></Link>
+        <Link to='/dealer-app'>
+        <Button text={'BACK'} style={'backButton'} />
+          </Link>
 
         
         <div className='buttonBox'>
-          <button onClick={() => {changeGame('American')}} id='first' >American Poker</button>
-          <button onClick={() => {changeGame('Russian')}} id='secound' >Russian Poker</button>
+        
+          <Button singleId='first' text={'American Poker'} handleChange={() => {changeGame('American')}}/>
+          <Button singleId='secound' text={'Russian Poker'} handleChange={() => {changeGame('Russian')}}/>
           
         </div>
 

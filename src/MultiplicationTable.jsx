@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import  Button  from './atoms/button/Button'
 
 import './MultiplicationTable.css'
 
@@ -258,15 +259,17 @@ const changeNumbers = (numb) =>{
 
   return (
       <div className='container' >
-        <Link to='/dealer-app'><button className='backButton'>BACK</button></Link>
+        <Link to='/dealer-app'>
+          <Button text={'BACK'} style={'backButton'} />
+          </Link>
 
         <div className='buttonBox'>
-          <button onClick={() => changeNumbers(35)}>35x1-20</button>
-          <button onClick={() => changeNumbers(17)}>17x1-20</button>
-          <button onClick={() => changeNumbers(11)}>11x1-20</button>
-          <button onClick={() => changeNumbers(8)}>8x1-20</button>
-          <button onClick={() => changeNumbers(5)}>5x1-20</button>
-          <button onClick={() => changeNumbers('all')}>ALL</button>
+          <Button text={'35x1-20'} handleChange={() => {changeNumbers(35)}}/>
+          <Button text={'17x1-20'} handleChange={() => {changeNumbers(17)}}/>
+          <Button text={'11x1-20'} handleChange={() => {changeNumbers(11)}}/>
+          <Button text={'8x1-20'} handleChange={() => {changeNumbers(8)}}/>
+          <Button text={'5x1-20'} handleChange={() => {changeNumbers(5)}}/>
+          <Button text={'ALL'} handleChange={() => {changeNumbers('all')}}/>
         </div>
 
        <div className='workBox'>

@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import {Link} from "react-router-dom"
 import './CountingBJ.css'
 
+import Button from './atoms/button/Button';
+
 export function CountingBJ() {
 
   const initCount = 0
@@ -104,18 +106,7 @@ const data =[
     {"a": 400, "b": 600}
   ]
 
-  /*const data = [
-    {"a": 5, "b": 7.5},
-  {"a": 15, "b": 22.5},
-  {"a": 25, "b": 37.5},
-  {"a": 35, "b": 52.5},
-  {"a": 45, "b": 67.5},
-  {"a": 55, "b": 82.5},
-  {"a": 65, "b": 97.5},
-  {"a": 75, "b": 112.5},
-  {"a": 85, "b": 127.5},
-  {"a": 95, "b": 142.5},
-]]*/ 
+  
 
 
   
@@ -194,13 +185,16 @@ const data =[
 
     <div className='container'>
 
-<Link to='/dealer-app'><button className='backButton'>BACK</button></Link>
+<Link to='/dealer-app'>
+<Button text={'BACK'} style={'backButton'} />
+  </Link>
 
 
 <div className='buttonBox'>
-          <button id='first' onClick={() => changeNumbers('100')}>1-100</button>
-          <button id='secound' onClick={() => changeNumbers('100-400')}>100-400</button>
-          <button id='all' onClick={() => changeNumbers('all')}>ALL</button>
+         
+          <Button singleId='first'  text={'100'} handleChange={() => {changeNumbers('100')}}/>
+          <Button singleId='secound' text={'100-400'} handleChange={() => {changeNumbers('100-400')}}/>
+          <Button singleId='all' text={'all'} handleChange={() => {changeNumbers('all')}}/>
         </div>
 
 
