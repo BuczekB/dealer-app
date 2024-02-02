@@ -10,15 +10,14 @@ function HomePage() {
 
   return (
       <div className='container' >
-
-     <h1>HomePage</h1>
-      
-
      <Link to="/MultiplicationTable">
      <button>Multiplication Table</button>
      </Link>
      <Link to="/CountingBJ">
      <button>Counting BJ</button>
+     </Link>
+     <Link to="/PokerPayments">
+     <button>PokerPayments</button>
      </Link>
     
      

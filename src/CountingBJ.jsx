@@ -17,7 +17,7 @@ export function CountingBJ() {
 
   const [correct, setCorrect] = useState(0)
   const [uncorrect, setUncorrect] = useState(0)
-  const [selectNumbers, setSelectNumbers] = useState([{a: 19 }, {b: 0}])
+  const [selectNumbers, setSelectNumbers] = useState([{a: 80 }, {b: 0}])
 
     
 
@@ -124,6 +124,7 @@ const data =[
     const {a} = selectNumbers[0]  
     const {b} = selectNumbers[1]  
     toggleNumber(a, b)
+  
   },[])
 
 
@@ -171,7 +172,7 @@ const data =[
           toggleNumber(19, 0)
           setSelectNumbers([{a: 19}, {b:0}])
         break;
-        case '100-600':
+        case '100-400':
             toggleNumber(80, 19)
             setSelectNumbers([{a: 80}, {b:19}])
            
@@ -198,7 +199,7 @@ const data =[
 
 <div className='buttonBox'>
           <button id='first' onClick={() => changeNumbers('100')}>1-100</button>
-          <button id='secound' onClick={() => changeNumbers('100-600')}>100-600</button>
+          <button id='secound' onClick={() => changeNumbers('100-400')}>100-400</button>
           <button id='all' onClick={() => changeNumbers('all')}>ALL</button>
         </div>
 
