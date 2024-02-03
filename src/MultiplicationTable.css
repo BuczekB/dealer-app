@@ -1,11 +1,10 @@
 #root {
-  margin: 0 ;
+  margin: 0;
   padding: 0;
   text-align: center;
 }
 
-
-.container{
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,84 +13,85 @@
   height: 100vh;
 }
 
-.App{
-display: flex;
+.App {
+  display: flex;
 }
-.workBox{
+.workBox {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 60vw;
 }
 
-.App, .appBgGreen, .appBgRed{
+.App,
+.appBgGreen,
+.appBgRed {
   width: 100vw;
-height: 100vh;
-justify-content: space-between;
-align-items: center;
-box-sizing: border-box;
-padding: 100px;
+  height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 100px;
 }
 
-h1{font-size: 44px;}
+h1 {
+  font-size: 44px;
+}
 
-
-.appBgGreen{
+.appBgGreen {
   background: rgb(26, 95, 7);
-  background: linear-gradient(135deg, rgb(23, 104, 1) 0%, rgb(19, 219, 56) 100%);
+  background: linear-gradient(
+    135deg,
+    rgb(23, 104, 1) 0%,
+    rgb(19, 219, 56) 100%
+  );
 }
-.appBgRed{
+.appBgRed {
   background: rgb(212, 7, 7);
   background: linear-gradient(135deg, rgb(122, 6, 6) 0%, rgb(255, 15, 15) 100%);
 }
-.bgNormal{
+.bgNormal {
   background-color: #666;
   display: flex;
-flex-direction: column;
-width: 50vw;
+  flex-direction: column;
+  width: 50vw;
 }
 
-.correct{
+.correct {
   color: green;
 }
-.uncorrect{
+.uncorrect {
   color: red;
-
-
 }
 
-
-.buttonBox{
+.buttonBox {
   display: flex;
   justify-content: center;
   position: absolute;
   top: 10%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   min-width: 50vw;
 }
 
-.mobileButton{
+.mobileButton {
   display: none;
 }
 
-
 @media (max-width: 500px) {
-
-  
-  
-
-  .container{
+  .container {
     width: 90vw;
     height: 100vh;
     font-size: 10px;
   }
-  .workBox{
+  .workBox {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-direction: column;
     width: 90vw;
   }
-  .mobileButton{
+  .mobileButton {
     display: flex;
     width: 30vw;
     height: 5vh;
@@ -101,22 +101,21 @@ width: 50vw;
     font-weight: bold;
     margin-top: 20px;
   }
-  .inputBox{
+  .inputBox {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .buttonBox{
+  .buttonBox {
     width: 95vw;
     justify-content: center;
     font-size: 12px;
-   background-color: aquamarine;
+    
   }
 }
 
-.backButton{
+.backButton {
   position: absolute;
   top: 2%;
   left: 2%;
 }
-

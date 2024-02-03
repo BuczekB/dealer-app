@@ -1,21 +1,19 @@
-.inputBox{
-    display: flex;
-    flex-direction: column;
-    width: 20vw;
-    text-align: center;
-
-    
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  text-align: center;
 }
-.labelInputBox{
-    font-size: 20px;
-    padding: 10px;
-    font-weight: bold;
+.labelInputBox {
+  font-size: 20px;
+  padding: 10px;
+  font-weight: bold;
 }
-.buttonBox{
-    display: flex;
-    width: 20VW;
-    transform: translate(-50%,-50%);
+.buttonBox {
+  display: flex;
+  width: 20vw;
+  transform: translate(-50%, -50%);
 }
-.buttonBox button{
-    margin: 0 10px;
+.buttonBox button {
+  margin: 0 1px;
 }
