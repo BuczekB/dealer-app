@@ -111,7 +111,7 @@ function MultiplicationTable() {
   ]
 
   const [printData, setPrintData] = useState()
-  const [toggleRandomNumber, setToggleRandomNumber] = useState()
+  const [toggleRandomNumber, setToggleRandomNumber] = useState('')
   const [saveRandomNumb, setSaveRandomNumb] = useState()
 
   const [message, setMessage] = useState('')
@@ -125,7 +125,7 @@ function MultiplicationTable() {
   const [uncorrect, setUncorrect] = useState(0)
 
 
-  const [selectNumbers, setSelectNumbers] = useState([{a: 99}, {b:0}])
+  const [selectNumbers, setSelectNumbers] = useState([{ a: 99, b:0}])
  
 
 
@@ -154,12 +154,14 @@ function MultiplicationTable() {
    
 
 
-    setSaveRandomNumb(numb[2])
+    setSaveRandomNumb(numb?.[2] ?? {})
 
-    const finalNumber = `${numb[0]} * ${numb[1]} = ?`
+
+    const finalNumber = `${numb && numb[0]} * ${numb && numb[1]} = ?`;
 
 
     setToggleRandomNumber(finalNumber)
+   
   }
 
   const handleChange = (e) =>{
@@ -199,8 +201,11 @@ function MultiplicationTable() {
    
     
 
-    const {a} = selectNumbers[0]  
-    const {b} = selectNumbers[1]  
+      
+
+
+    const a = selectNumbers[0]?.a || {};
+    const b = selectNumbers[1]?.b || {};
 
     toggleNumber(a , b)
     
@@ -257,6 +262,7 @@ const changeNumbers = (numb) =>{
 
 
 
+
   return (
       <div className='container' >
         <Link to='/dealer-app'>
@@ -264,25 +270,27 @@ const changeNumbers = (numb) =>{
           </Link>
 
         <div className='buttonBox'>
-          <Button text={'35x1-20'} handleChange={() => {changeNumbers(35)}}/>
-          <Button text={'17x1-20'} handleChange={() => {changeNumbers(17)}}/>
-          <Button text={'11x1-20'} handleChange={() => {changeNumbers(11)}}/>
-          <Button text={'8x1-20'} handleChange={() => {changeNumbers(8)}}/>
-          <Button text={'5x1-20'} handleChange={() => {changeNumbers(5)}}/>
-          <Button text={'ALL'} handleChange={() => {changeNumbers('all')}}/>
+          <Button singleId='35' text={'35x1-20'} handleChange={() => {changeNumbers(35)}}/>
+          <Button singleId='17' text={'17x1-20'} handleChange={() => {changeNumbers(17)}}/>
+          <Button singleId='11' text={'11x1-20'} handleChange={() => {changeNumbers(11)}}/>
+          <Button singleId='8' text={'8x1-20'} handleChange={() => {changeNumbers(8)}}/>
+          <Button singleId='5' text={'5x1-20'} handleChange={() => {changeNumbers(5)}}/>
+          <Button singleId='all' text={'ALL'} handleChange={() => {changeNumbers('all')}}/>
         </div>
 
        <div className='workBox'>
-       <div className='correct'>
-        <h1>Correct: {correct}</h1>
+       <div className='correct' id='correctNoumber'>
+        <h1>Correct: <span id='correctNoumber'>{correct}</span></h1>
         </div>
     
      <div className='inputBox'>
-     <h1>{toggleRandomNumber}</h1>
+     <h1 id='numbersToMultiplication'>{toggleRandomNumber}</h1>
       <input 
       onChange={handleChange}
       onKeyDown={handleKeyDown}
       value={message}
+      id='valueToCheck'
+      placeholder='type your answer'
       ></input>
       <button className='mobileButton' onClick={handleKeyDown}>CHECK</button>
      </div>
@@ -299,3 +307,5 @@ const changeNumbers = (numb) =>{
 }
 
 export default MultiplicationTable
+
+

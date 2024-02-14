@@ -123,8 +123,10 @@ const data =[
     const random = Math.floor(Math.random() * (valueMax - valueMin + 1) + valueMin);
 
     const numb = data[random]
-    setFinalNumber(numb.a)
-    setBjOfFinalNumber(numb.b)
+    setFinalNumber(numb?.a ?? {})
+    setBjOfFinalNumber(numb?.b ?? {})
+
+
 
     return(random)
     

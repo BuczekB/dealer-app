@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { Link } from "react-router-dom"
 
 import './PokerPayments.css'
@@ -46,6 +46,14 @@ const PokerPayments = () => {
       toggleNumber(6,1, dataAmerican)
      },[])
 
+     const inputRef = useRef(null);
+
+     const handleClick = () => {
+     
+       inputRef.current.focus();
+     };
+   
+
     const toggleNumber = (valueMax, valueMin, nameOfDataBase) =>{
       const random = Math.floor(Math.random() * (valueMax - valueMin + 1) + valueMin);
       const arrayElement = nameOfDataBase[random]
@@ -89,7 +97,8 @@ const checkPayments = () =>{
     }
   }
 
-  
+
+  handleClick()
  
 }
 const changeGame = (value) =>{
@@ -116,6 +125,9 @@ const handleKeyDown = (e) =>{
   if(e.key === 'Enter' ){
     checkPayments()
   }
+
+ 
+
   }
     return(
         <div className='container'>
@@ -144,6 +156,8 @@ const handleKeyDown = (e) =>{
         name="blind"
         value={inputValueOne}
         onChange={handleChangeFirstInput}
+        autoFocus
+        ref={inputRef}
       ></input>
       <label className="labelInputBox" htmlFor='blind'>{choosePoker.firstValue}</label>
       </div>

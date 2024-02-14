@@ -9,6 +9,7 @@ import { MemoryRouter } from 'react-router-dom'
 import App from './App'
 
 
+
 test('testing correct counting BJ ',   () => {
   render(
     <MemoryRouter initialEntries={['/CountingBJ']}>
@@ -28,10 +29,12 @@ test('testing correct counting BJ ',   () => {
   
   
   const correctNoumber = document.getElementById('correctNoumber')
+ 
 
 
-console.log(valueOfBlackJack.textContent, 'first');
-console.log(  test , 'secound');
+
+//console.log(valueOfBlackJack.textContent, 'first');
+//console.log(  test , 'secound');
 
 expect(correctNoumber.textContent).toBe('1');
  
@@ -55,7 +58,7 @@ test('testing change value of blackjacks (1-100)',   () => {
 
   const valueOfBlackJack =  document.getElementById('valueBJ')
 
-  console.log(valueOfBlackJack.textContent, 'testtt1');
+  //console.log(valueOfBlackJack.textContent, 'testtt1');
 
   const intValue = (valueOfBlackJack.textContent*1)
 
@@ -77,7 +80,7 @@ test('testing change value of blackjacks (100-600)',   () => {
 
   const valueOfBlackJack =  document.getElementById('valueBJ')
 
-  console.log(valueOfBlackJack.textContent, 'test2');
+  //console.log(valueOfBlackJack.textContent, 'test2');
 
   const intValue = (valueOfBlackJack.textContent*1)
 
