@@ -150,7 +150,7 @@ const handleKeyDown = (e) =>{
         </div>
     
         <div className='inputBox'>
-     <h1>{choosePoker.name}<span id='valueBJ'><br></br>{toggleHands.name}</span></h1>
+     <h1>{choosePoker.name}<span id='nameOfHand'><br></br>{toggleHands.name}</span></h1>
       <div className="inputBox"><input 
         onKeyDown={handleKeyDown}
         name="blind"
@@ -158,6 +158,7 @@ const handleKeyDown = (e) =>{
         onChange={handleChangeFirstInput}
         autoFocus
         ref={inputRef}
+        id="blindOrAnte"
       ></input>
       <label className="labelInputBox" htmlFor='blind'>{choosePoker.firstValue}</label>
       </div>
@@ -166,6 +167,7 @@ const handleKeyDown = (e) =>{
         name="bonus"
         onChange={handleChangeSecoundInput}
         value={inputValueTwo}
+        id="bonus"
       ></input>
       <label className="labelInputBox" htmlFor='bonus'>{choosePoker.secoundValue}</label>
       </div>
