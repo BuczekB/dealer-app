@@ -138,6 +138,8 @@ function MultiplicationTable() {
 
   const toggleNumber = (a,b) =>{
 
+    console.log(a,b);
+
     const list = data.map((item) =>{
       return [item.a , item.b, item.c] 
        })
@@ -171,7 +173,9 @@ function MultiplicationTable() {
   
 
   const handleKeyDown = (e) =>{
-    console.log(e.target.type);
+
+   
+    
    if(e.key === 'Enter' || e.target.type === 'submit'){
     setUpdated(message)
    
@@ -183,7 +187,7 @@ function MultiplicationTable() {
       toggleBackground('appBgGreen')
       setCorrect(correct + 1)
 
-    console.log('correct');
+   
       
     }else{
      
@@ -191,21 +195,26 @@ function MultiplicationTable() {
       toggleBackground('appBgRed')
       setUncorrect(uncorrect + 1)
 
-     console.log('test');
+   
       
     }
   
-    console.log(e.target.value);
+    
 
     setMessage('')
    
     
 
       
-
+// naprawic zapytanie o b
 
     const a = selectNumbers[0]?.a || {};
-    const b = selectNumbers[1]?.b || {};
+    const b = selectNumbers[0].b 
+    
+
+    
+
+    
 
     toggleNumber(a , b)
     
