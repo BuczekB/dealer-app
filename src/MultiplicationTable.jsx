@@ -146,9 +146,13 @@ function MultiplicationTable() {
    
        setPrintData(list)
 
-       
+       console.log(list);
+
+       console.log(a, b);
 
     const random = Math.floor(Math.random() * (a - b + 1) + b);
+
+    console.log(random);
     
   
     
@@ -157,11 +161,12 @@ function MultiplicationTable() {
 
 
     setSaveRandomNumb(numb?.[2] ?? {})
+    console.log(list, random);
 
 
     const finalNumber = `${numb && numb[0]} * ${numb && numb[1]} = ?`;
 
-
+    console.log(finalNumber);
     setToggleRandomNumber(finalNumber)
    
   }
@@ -208,13 +213,15 @@ function MultiplicationTable() {
       
 // naprawic zapytanie o b
 
+console.log(selectNumbers);
+
     const a = selectNumbers[0]?.a || {};
-    const b = selectNumbers[0].b 
+    const b = selectNumbers[0]?.b;
     
 
-    
+    console.log(selectNumbers);
 
-    
+    console.log(a,b);
 
     toggleNumber(a , b)
     
@@ -242,23 +249,23 @@ const changeNumbers = (numb) =>{
       break;
       case 35:
           toggleNumber(19, 0)
-          setSelectNumbers([{a: 19}, {b:0}])
+          setSelectNumbers([{a: 19, b:0}])
         break;
         case 17:  
          toggleNumber(39,20)
-         setSelectNumbers([{a: 39}, {b:20}])
+         setSelectNumbers([{a: 39, b:20}])
         break;
         case 11:
            toggleNumber(59, 40)
-           setSelectNumbers([{a: 59}, {b:40}])
+           setSelectNumbers([{a: 59, b:40}])
         break;
         case 8:
            toggleNumber(79, 60)
-           setSelectNumbers([{a: 79}, {b:60}])
+           setSelectNumbers([{a: 79, b:60}])
         break;
         case 5:  
              toggleNumber(99, 80)
-             setSelectNumbers([{a: 99}, {b:80}])
+             setSelectNumbers([{a: 99, b:80}])
           break;
     default:
       break
